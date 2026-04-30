@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Claim €50,000 bonus</title>
+  <title>Бонус от €50,000 | BitcoinINVEST</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -18,13 +18,11 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-    
       align-items: center;
       justify-content: center;
       padding: 2rem 1.5rem 5rem 1.5rem;
     }
 
-    /* main card – clean, professional, rounded */
     .card {
       max-width: 620px;
       width: 100%;
@@ -37,7 +35,6 @@
       border: 1px solid rgba(255,255,255,0.6);
     }
 
-    /* recipient greeting zone */
     .greeting {
       text-align: center;
       margin-bottom: 2rem;
@@ -64,7 +61,6 @@
       word-break: break-word;
     }
 
-    /* slider container */
     .slider-section {
       margin: 2rem 0 1.5rem 0;
     }
@@ -87,10 +83,6 @@
       color: #1a5d7a;
     }
 
-    
- 
-
-    /* payment summary cards */
     .payment-summary {
       display: flex;
       gap: 1.2rem;
@@ -152,7 +144,6 @@
       font-size: 0.85rem;
     }
 
-    /* descriptive message professional */
     .info-message {
       background: #f0f4f8;
       border-radius: 24px;
@@ -177,7 +168,36 @@
       margin-top: 1.2rem;
     }
 
-    /* TABS (footer) */
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .lang-btn {
+      background: #eef2f6;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #2c4b60;
+    }
+
+    .lang-btn.active {
+      background: #2c7a6e;
+      color: white;
+    }
+
+    .lang-btn:hover:not(.active) {
+      background: #dfe6ed;
+    }
+
+    /* TABS */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -224,7 +244,6 @@
       color: #1f6e5c;
     }
 
-    /* panels content */
     .panel {
       display: none;
     }
@@ -233,7 +252,6 @@
       display: block;
     }
 
-    /* transaction history styling */
     .transaction-list {
       margin: 1rem 0;
       border-top: 1px solid #eef2f5;
@@ -262,7 +280,6 @@
       color: #2c7a5e;
     }
 
-    /* withdrawal section */
     .withdrawal-field {
       margin: 1.8rem 0 1rem;
     }
@@ -317,12 +334,6 @@
       margin-top: 0.8rem;
     }
 
-    hr {
-      margin: 0.8rem 0;
-      border: none;
-      border-top: 1px solid #e2edf2;
-    }
-
     @media (max-width: 500px) {
       .card {
         padding: 1.5rem;
@@ -334,40 +345,58 @@
         font-size: 1.5rem;
       }
     }
-    nav{
-        display: flex;
-        background-color: white ;
-        margin: 20px ;
-        padding: 20px; 
-        border-radius: 30px ;
+
+    nav {
+      display: flex;
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 30px;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 40px);
+      max-width: 620px;
     }
-    nav p{
-        font-size: 2rem ;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    nav p {
+      font-size: 1.8rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav p i {
+      font-size: 2rem;
+      color: #f7931a;
     }
   </style>
 </head>
 <body>
- <nav>
-    <p style="display: flex; place-items: center;"><i class="fab fa-bitcoin"></i> BitcoinINVEST</p>
- </nav>
+<nav>
+  <p style="display: flex; place-items: center;"><i class="fab fa-bitcoin"></i> BitcoinINVEST</p>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="bg">BG</button>
+  </div>
+</nav>
+
 <div class="card" id="mainContainer">
-    
-  <!-- HOME PANEL (default) -->
+  <!-- HOME PANEL -->
   <div id="homePanel" class="panel active-panel">
     <div class="greeting">
-      <div class="recipient-label">Congratulations get ready to claim €50,000 bonus </div>
+      <div class="recipient-label" id="homeLabel">Congratulations get ready to claim €50,000 bonus</div>
       <div class="recipient-name" id="recipientNameDisplay">VASILKA APOSTOLOVA</div>
     </div>
 
     <div class="slider-section">
       <div class="slider-header">
-        <span><i class="fas fa-chart-line" style="margin-right: 6px;"></i> Total Obligation</span>
+        <span><i class="fas fa-chart-line" style="margin-right: 6px;"></i> <span id="totalObligationLabel">Total Obligation</span></span>
         <span class="slider-value" id="sliderValueLabel">€1500</span>
       </div>
-    <div style="background: #e2e8f0; border-radius: 20px; height: 10px; width: 100%; overflow: hidden;">
-  <div style="background: #2c7a6e; width: 60%; height: 100%; border-radius: 20px;"></div>
-</div>
+      <div style="background: #e2e8f0; border-radius: 20px; height: 10px; width: 100%; overflow: hidden;">
+        <div style="background: #2c7a6e; width: 60%; height: 100%; border-radius: 20px;"></div>
+      </div>
       <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #6183a0; margin-top: 6px;">
         <span>€0</span>
         <span>€750</span>
@@ -377,26 +406,26 @@
 
     <div class="payment-summary">
       <div class="stat-card">
-        <div class="stat-label">PAID (credited)</div>
+        <div class="stat-label" id="paidLabel">PAID (credited)</div>
         <div class="stat-amount" id="paidAmountDisplay">€900</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">LEFT TO COMPLETE</div>
+        <div class="stat-label" id="leftLabel">LEFT TO COMPLETE</div>
         <div class="stat-amount left-amount" id="leftAmountDisplay">€600</div>
       </div>
     </div>
 
-    <div class="signature">
-      Make Deposits through Crypto with: <span>Binance </span>
+    <div class="signature" id="signatureText">
+      Make Deposits through Crypto with: <span>Binance</span>
     </div>
 
     <div class="info-message" id="infoMessageHome">
       <strong>Notice:</strong> Only users who complete payment can claim investment funds.
     </div>
-    <div class="info-message" id="infoMessageHome">
-    <h3>€50,000 to be sent to  <strong>VASILKA APOSTOLOVA</strong></h3>
+    <div class="info-message" id="bonusMessage">
+      <h3 id="bonusText">€50,000 to be sent to <strong>VASILKA APOSTOLOVA</strong></h3>
     </div>
-    <div class="quiet-footer-note">
+    <div class="quiet-footer-note" id="footerNote">
       * complete payment means total obligation paid
     </div>
   </div>
@@ -404,76 +433,157 @@
   <!-- TRANSACTION PANEL -->
   <div id="transactionPanel" class="panel">
     <div style="margin-bottom: 1rem;">
-      <h3 style="font-weight: 600; font-size: 1.3rem; color: #1f3e4b;"><i class="fas fa-history"></i> Transaction history</h3>
-      <p style="font-size: 0.75rem; color: #6c8d9f;">Recorded payments & credits</p>
+      <h3 style="font-weight: 600; font-size: 1.3rem; color: #1f3e4b;"><i class="fas fa-history"></i> <span id="transactionTitle">Transaction history</span></h3>
+      <p style="font-size: 0.75rem; color: #6c8d9f;" id="transactionSubtitle">Recorded payments & credits</p>
     </div>
-    <div class="transaction-list" id="transactionList">
-      <!-- dynamic content via JS -->
-    </div>
-    <div class="quiet-footer-note" style="margin-top: 1rem;">
-      Latest activity shown
-    </div>
+    <div class="transaction-list" id="transactionList"></div>
+    <div class="quiet-footer-note" style="margin-top: 1rem;" id="transactionFooter">Latest activity shown</div>
   </div>
 
   <!-- WITHDRAWAL PANEL -->
   <div id="withdrawalPanel" class="panel">
     <div style="margin-bottom: 1.2rem;">
-      <h3 style="font-weight: 600; font-size: 1.3rem; color: #1f3e4b;"><i class="fas fa-university"></i> Withdrawal</h3>
-      <p style="font-size: 0.75rem; color: #6c8d9f;">Add beneficiary details</p>
+      <h3 style="font-weight: 600; font-size: 1.3rem; color: #1f3e4b;"><i class="fas fa-university"></i> <span id="withdrawalTitle">Withdrawal</span></h3>
+      <p style="font-size: 0.75rem; color: #6c8d9f;" id="withdrawalSubtitle">Add beneficiary details</p>
     </div>
     <div class="withdrawal-field">
-      <div class="field-label">Full name (account holder)</div>
+      <div class="field-label" id="fullNameLabel">Full name (account holder)</div>
       <input type="text" id="beneficiaryName" class="name-input" placeholder="e.g. Vasilka Apostolova" value="Vasilka Apostolova">
     </div>
     <div class="withdrawal-field">
-      <div class="field-label">IBAN / Account number</div>
+      <div class="field-label" id="ibanLabel">IBAN / Account number</div>
       <input type="text" id="ibanInput" class="iban-input" placeholder="ENTER YOUR IBAN">
     </div>
-    <button id="withdrawBtn" class="withdraw-btn" disabled>Withdraw funds</button>
+    <button id="withdrawBtn" class="withdraw-btn" disabled><span id="withdrawBtnText">Withdraw funds</span></button>
     <div id="withdrawWarningMsg" class="withdraw-note">
-      <i class="fas fa-lock"></i> You have to complete funds to withdraw
+      <i class="fas fa-lock"></i> <span id="withdrawWarningText">You have to complete funds to withdraw</span>
     </div>
   </div>
 </div>
 
-<!-- BOTTOM NAVIGATION TABS (fixed footer) -->
+<!-- BOTTOM NAVIGATION TABS -->
 <div class="bottom-nav">
-  <button class="nav-item" data-tab="home"><i class="fas fa-home"></i><span>Home</span></button>
-  <button class="nav-item" data-tab="transactions"><i class="fas fa-exchange-alt"></i><span>Transactions</span></button>
-  <button class="nav-item" data-tab="withdrawal"><i class="fas fa-credit-card"></i><span>Withdrawal</span></button>
+  <button class="nav-item" data-tab="home"><i class="fas fa-home"></i><span id="navHome">Home</span></button>
+  <button class="nav-item" data-tab="transactions"><i class="fas fa-exchange-alt"></i><span id="navTransactions">Transactions</span></button>
+  <button class="nav-item" data-tab="withdrawal"><i class="fas fa-credit-card"></i><span id="navWithdrawal">Withdrawal</span></button>
 </div>
 
 <script>
-  // DOM references
-  const slider = document.getElementById('amountSlider');
-  const sliderValueLabel = document.getElementById('sliderValueLabel');
-  const leftAmountSpan = document.getElementById('leftAmountDisplay');
-  const paidAmountSpan = document.getElementById('paidAmountDisplay');
-  const infoMessageDiv = document.getElementById('infoMessageHome');
-  const recipientSpan = document.getElementById('recipientNameDisplay');
+  // Language translations
+  const translations = {
+    en: {
+      homeLabel: "Congratulations get ready to claim €50,000 bonus",
+      totalObligation: "Total Obligation",
+      paidLabel: "PAID (credited)",
+      leftLabel: "LEFT TO COMPLETE",
+      signature: "Make Deposits through Crypto with:",
+      signatureSpan: "Binance",
+      notice: "Only users who complete payment can claim investment funds.",
+      bonusText: "€50,000 to be sent to",
+      footerNote: "* complete payment means total obligation paid",
+      transactionTitle: "Transaction history",
+      transactionSubtitle: "Recorded payments & credits",
+      transactionFooter: "Latest activity shown",
+      withdrawalTitle: "Withdrawal",
+      withdrawalSubtitle: "Add beneficiary details",
+      fullNameLabel: "Full name (account holder)",
+      ibanLabel: "IBAN / Account number",
+      withdrawBtn: "Withdraw funds",
+      withdrawWarning: "You have to complete funds to withdraw",
+      withdrawSuccess: "Payment completed. You can now add IBAN and withdraw.",
+      navHome: "Home",
+      navTransactions: "Transactions",
+      navWithdrawal: "Withdrawal",
+      paidPrefix: "€",
+      leftPrefix: "€",
+      completeMessage: "Payment completed. You have fulfilled the total obligation. You are now eligible to claim investment funds.",
+      pendingMessage: "Only users who complete payment can claim investment funds. Remaining: €",
+      transactionDesc1: "Funds credited - Simeon's management",
+      transactionDesc2: "Initial deposit (completed)",
+      transactionConfirm: "✔ €900 payment confirmed · non-refundable credit",
+      alertEmpty: "Please provide both beneficiary name and IBAN to proceed with withdrawal.",
+      alertSuccess: "Withdrawal request submitted for",
+      processingDays: "Processing will begin within 2 business days."
+    },
+    bg: {
+      homeLabel: "Поздравления, пригответе се да получите бонус от €50,000",
+      totalObligation: "Общо задължение",
+      paidLabel: "ПЛАТЕНО (кредитирано)",
+      leftLabel: "ОСТАВА ДА СЕ ДОВЪРШИ",
+      signature: "Направете депозити чрез крипто с:",
+      signatureSpan: "Binance",
+      notice: "Само потребители, които завършат плащането, могат да поискат инвестиционни средства.",
+      bonusText: "€50,000 ще бъдат изпратени на",
+      footerNote: "* завършено плащане означава, че общото задължение е платено",
+      transactionTitle: "История на транзакциите",
+      transactionSubtitle: "Записани плащания и кредити",
+      transactionFooter: "Показана е последната активност",
+      withdrawalTitle: "Теглене",
+      withdrawalSubtitle: "Добавете данни на бенефициента",
+      fullNameLabel: "Пълно име (титуляр на сметката)",
+      ibanLabel: "IBAN / Номер на сметка",
+      withdrawBtn: "Теглене на средства",
+      withdrawWarning: "Трябва да завършите плащането, за да теглите",
+      withdrawSuccess: "Плащането е завършено. Вече можете да добавите IBAN и да теглите.",
+      navHome: "Начало",
+      navTransactions: "Транзакции",
+      navWithdrawal: "Теглене",
+      paidPrefix: "€",
+      leftPrefix: "€",
+      completeMessage: "Плащането е завършено. Изпълнихте общото задължение. Вече можете да поискате инвестиционни средства.",
+      pendingMessage: "Само потребители, които завършат плащането, могат да поискат средства. Остават: €",
+      transactionDesc1: "Кредитирани средства - Simeon's management",
+      transactionDesc2: "Първоначален депозит (завършен)",
+      transactionConfirm: "✔ Потвърдено плащане от €900 · невъзстановим кредит",
+      alertEmpty: "Моля, въведете име на бенефициента и IBAN, за да продължите с тегленето.",
+      alertSuccess: "Заявка за теглене е изпратена за",
+      processingDays: "Обработката ще започне в рамките на 2 работни дни."
+    }
+  };
 
-  // Fixed paid amount
-  const PAID_AMOUNT = 900; // €900 credited
+  let currentLang = 'en';
 
-  // Transaction data : show history of received 900 euros
-  let transactions = [
-    { id: 1, description: "Initial credit (payment received)", amount: 900, date: "2026-04-30", type: "credit" },
-    { id: 2, description: "Payment confirmation - Simeon's management", amount: 0, date: "2026-04-30", type: "info" } // placeholder, but show main 900
-  ];
-  // Ensure we highlight single 900€ payment as main.
-  // For cleaner representation: show 'Payment received: €900'
-  const transactionHistoryData = [
-    { desc: "Payment received (credited)", amount: "+€900", date: "2026-04-30", finalized: true },
-    { desc: "Account activation", amount: "€0", date: "2026-04-30", finalized: true }
-  ];
+  function setLanguage(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+
+    // Update all text elements
+    document.getElementById('homeLabel').innerText = t.homeLabel;
+    document.getElementById('totalObligationLabel').innerText = t.totalObligation;
+    document.getElementById('paidLabel').innerText = t.paidLabel;
+    document.getElementById('leftLabel').innerText = t.leftLabel;
+    document.getElementById('signatureText').innerHTML = `${t.signature} <span>${t.signatureSpan}</span>`;
+    document.getElementById('footerNote').innerText = t.footerNote;
+    document.getElementById('transactionTitle').innerText = t.transactionTitle;
+    document.getElementById('transactionSubtitle').innerText = t.transactionSubtitle;
+    document.getElementById('transactionFooter').innerText = t.transactionFooter;
+    document.getElementById('withdrawalTitle').innerText = t.withdrawalTitle;
+    document.getElementById('withdrawalSubtitle').innerText = t.withdrawalSubtitle;
+    document.getElementById('fullNameLabel').innerText = t.fullNameLabel;
+    document.getElementById('ibanLabel').innerText = t.ibanLabel;
+    document.getElementById('withdrawBtnText').innerText = t.withdrawBtn;
+    document.getElementById('navHome').innerText = t.navHome;
+    document.getElementById('navTransactions').innerText = t.navTransactions;
+    document.getElementById('navWithdrawal').innerText = t.navWithdrawal;
+    
+    // Update bonus message
+    document.getElementById('bonusText').innerHTML = `${t.bonusText} <strong>VASILKA APOSTOLOVA</strong>`;
+    
+    // Update transaction list with current language
+    renderTransactionHistory();
+    
+    // Update info message and withdrawal warning based on current completion status
+    updateDashboard();
+    updateWithdrawalUI();
+  }
 
   function renderTransactionHistory() {
     const container = document.getElementById('transactionList');
     if (!container) return;
-    // show main transaction of 900 euros
+    const t = translations[currentLang];
     const history = [
-      { desc: "Funds credited - Simeon's management", amount: "+€900.00", date: "2026-04-30", isPrimary: true },
-      { desc: "Initial deposit (completed)", amount: "€900.00", date: "2026-04-30", isPrimary: false }
+      { desc: t.transactionDesc1, amount: "+€900.00", date: "2026-04-30" },
+      { desc: t.transactionDesc2, amount: "€900.00", date: "2026-04-30" }
     ];
     let html = '';
     history.forEach(tx => {
@@ -487,86 +597,75 @@
         </div>
       `;
     });
-    // Additional extra info: show status of 900 paid reference
-    html += `<div style="font-size: 0.7rem; padding: 0.6rem 0; text-align: center; color: #2c7a6e; border-top: 1px solid #ecf3f7; margin-top: 6px;">✔ €900 payment confirmed · non-refundable credit</div>`;
+    html += `<div style="font-size: 0.7rem; padding: 0.6rem 0; text-align: center; color: #2c7a6e; border-top: 1px solid #ecf3f7; margin-top: 6px;">${t.transactionConfirm}</div>`;
     container.innerHTML = html;
   }
 
-  // Withdrawal logic based on completion
+  const PAID_AMOUNT = 900;
+
+  function updateDashboard() {
+    const total = 1500; // fixed total obligation
+    const leftAmount = total - PAID_AMOUNT;
+    const isComplete = (leftAmount === 0);
+    const t = translations[currentLang];
+    
+    document.getElementById('sliderValueLabel').innerText = `€${total}`;
+    document.getElementById('paidAmountDisplay').innerText = `€${PAID_AMOUNT}`;
+    document.getElementById('leftAmountDisplay').innerText = `€${leftAmount}`;
+    
+    const infoDiv = document.getElementById('infoMessageHome');
+    if (isComplete) {
+      infoDiv.innerHTML = `<strong>${t.completeMessage}</strong>`;
+      infoDiv.style.borderLeftColor = "#2b7a62";
+      infoDiv.style.background = "#e6f2ef";
+    } else {
+      infoDiv.innerHTML = `<strong>Notice:</strong> ${t.pendingMessage}${leftAmount.toLocaleString()}`;
+      infoDiv.style.borderLeftColor = "#578a7c";
+      infoDiv.style.background = "#f0f4f8";
+    }
+  }
+
   function updateWithdrawalUI() {
-    const totalObligation = parseInt(slider.value, 10);
-    const leftAmount = Math.max(0, totalObligation - PAID_AMOUNT);
+    const total = 1500;
+    const leftAmount = total - PAID_AMOUNT;
     const isComplete = (leftAmount === 0);
     const withdrawBtn = document.getElementById('withdrawBtn');
     const warningMsgDiv = document.getElementById('withdrawWarningMsg');
     const ibanInput = document.getElementById('ibanInput');
     const beneficiaryField = document.getElementById('beneficiaryName');
+    const t = translations[currentLang];
 
     if (isComplete) {
-      // if fully paid (obligation met)
       withdrawBtn.disabled = false;
       withdrawBtn.style.background = "#2c7a6e";
       withdrawBtn.style.color = "white";
       withdrawBtn.style.cursor = "pointer";
       if (warningMsgDiv) {
-        warningMsgDiv.innerHTML = '<i class="fas fa-check-circle"></i> Payment completed. You can now add IBAN and withdraw.';
+        warningMsgDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${t.withdrawSuccess}`;
         warningMsgDiv.style.background = "#e0f0ea";
         warningMsgDiv.style.color = "#1b5e4f";
       }
-      // BUT withdraw button validation: require IBAN non-empty and name non-empty? add basic check
       withdrawBtn.onclick = () => {
         const iban = ibanInput.value.trim();
         const name = beneficiaryField.value.trim();
         if (iban === "" || name === "") {
-          alert("Please provide both beneficiary name and IBAN to proceed with withdrawal.");
+          alert(t.alertEmpty);
         } else {
-          alert(`Withdrawal request submitted for ${name} to IBAN: ${iban}. Processing will begin within 2 business days.`);
+          alert(`${t.alertSuccess} ${name} към IBAN: ${iban}. ${t.processingDays}`);
         }
       };
     } else {
-      // not completed: disable, show warning
       withdrawBtn.disabled = true;
       withdrawBtn.style.background = "#eef2f6";
       withdrawBtn.style.color = "#8aa5b5";
       withdrawBtn.style.cursor = "not-allowed";
       if (warningMsgDiv) {
-        warningMsgDiv.innerHTML = '<i class="fas fa-lock"></i> You have to complete funds to withdraw. Remaining: €' + leftAmount.toLocaleString();
+        warningMsgDiv.innerHTML = `<i class="fas fa-lock"></i> ${t.withdrawWarning}. Остават: €${leftAmount.toLocaleString()}`;
         warningMsgDiv.style.background = "#fff4f2";
         warningMsgDiv.style.color = "#b3413b";
       }
       withdrawBtn.onclick = null;
     }
-  }
-
-  // Full dashboard update (home panel numbers + completion message + withdrawal panel sync)
-  function updateDashboard() {
-    const total = parseInt(slider.value, 10);
-    // update slider label
-    sliderValueLabel.innerText = `€${total.toLocaleString()}`;
-    paidAmountSpan.innerText = `€${PAID_AMOUNT.toLocaleString()}`;
-    let leftAmount = total - PAID_AMOUNT;
-    if (leftAmount < 0) leftAmount = 0;
-    leftAmountSpan.innerText = `€${leftAmount.toLocaleString()}`;
-
-    const isComplete = (leftAmount === 0);
-    // update the info message on home panel
-    if (isComplete) {
-      infoMessageDiv.innerHTML = `<strong>Payment completed.</strong> You have fulfilled the total obligation. You are now eligible to claim investment funds.`;
-      infoMessageDiv.style.borderLeftColor = "#2b7a62";
-      infoMessageDiv.style.background = "#e6f2ef";
-    } else {
-      infoMessageDiv.innerHTML = `<strong>Notice:</strong> Only users who complete payment can claim investment funds. Remaining: €${leftAmount.toLocaleString()}`;
-      infoMessageDiv.style.borderLeftColor = "#578a7c";
-      infoMessageDiv.style.background = "#f0f4f8";
-    }
-
-    // also update withdrawal section (since it lives in another panel but we keep sync)
-    updateWithdrawalUI();
-  }
-
-  // Slider event
-  function onSliderChange() {
-    updateDashboard();
   }
 
   // Navigation Tabs Logic
@@ -576,97 +675,47 @@
   const navButtons = document.querySelectorAll('.nav-item');
 
   function setActiveTab(tabId) {
-    // hide all panels
     homePanel.classList.remove('active-panel');
     transactionPanel.classList.remove('active-panel');
     withdrawalPanel.classList.remove('active-panel');
-    // remove active class from nav items
     navButtons.forEach(btn => btn.classList.remove('active'));
-    // show selected
+    
     if (tabId === 'home') {
       homePanel.classList.add('active-panel');
       navButtons[0].classList.add('active');
     } else if (tabId === 'transactions') {
       transactionPanel.classList.add('active-panel');
       navButtons[1].classList.add('active');
-      // re-render transaction histories whenever panel opens to show fresh
       renderTransactionHistory();
     } else if (tabId === 'withdrawal') {
       withdrawalPanel.classList.add('active-panel');
       navButtons[2].classList.add('active');
-      // update UI for withdrawal whenever visible
       updateWithdrawalUI();
     }
   }
 
   navButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const tab = btn.getAttribute('data-tab');
-      if (tab === 'home') setActiveTab('home');
-      else if (tab === 'transactions') setActiveTab('transactions');
-      else if (tab === 'withdrawal') setActiveTab('withdrawal');
+      setActiveTab(tab);
     });
   });
 
-  // initial render of transaction history 
-  renderTransactionHistory();
-  
-  // set initial slider value = 1500 (so left = 600) because spec example shown €600 left
-  slider.value = 1500;
-  // ensure default paid 900, left 600, and message
-  updateDashboard();
-
-  // attach slider listener
-  slider.addEventListener('input', onSliderChange);
-
-  // also if recipient wants to keep name, we set from original
-  // recipient name dynamic (keep as is)
-  // VASILKA APOSTOLOVA already set in html
-  
-  // small extra: sync withdrawal on each dashboard update
-  // withdrawal fields prefill: iban check (when complete)
-  // additional edge: updateWithdrawalUI called initially and slider change.
-  // Also if transaction tab, we ensure any 900 euros history is well-displayed.
-  // final tweak: style withdrawal message initially matches left = 600
-  // ensure button is disabled and message correct.
-  window.updateWithdrawalUI = updateWithdrawalUI;
-
-  // make sure the IBAN/name fields listen to changes for withdrawal completion status validation
-  const ibanField = document.getElementById('ibanInput');
-  const nameField = document.getElementById('beneficiaryName');
-  function checkWithdrawalEnablement() {
-    const total = parseInt(slider.value, 10);
-    const leftAmount = Math.max(0, total - PAID_AMOUNT);
-    const isComplete = leftAmount === 0;
-    const withdrawBtn = document.getElementById('withdrawBtn');
-    if (isComplete && withdrawBtn) {
-      withdrawBtn.disabled = false;
-      withdrawBtn.style.background = "#2c7a6e";
-      withdrawBtn.style.color = "white";
-      withdrawBtn.style.cursor = "pointer";
-    } else if (!isComplete && withdrawBtn) {
-      withdrawBtn.disabled = true;
-      withdrawBtn.style.background = "#eef2f6";
-      withdrawBtn.style.color = "#8aa5b5";
-    }
-  }
-  if (ibanField) ibanField.addEventListener('input', checkWithdrawalEnablement);
-  if (nameField) nameField.addEventListener('input', checkWithdrawalEnablement);
-  // final sync after each slider
-  const originalUpdate = updateDashboard;
-  window.updateDashboard = function() {
-    originalUpdate();
-    checkWithdrawalEnablement();
-  };
-  updateDashboard = function() {
-    originalUpdate();
-    checkWithdrawalEnablement();
-  };
-  slider.addEventListener('input', () => {
-    updateDashboard();
+  // Language switcher
+  const langBtns = document.querySelectorAll('.lang-btn');
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const lang = btn.getAttribute('data-lang');
+      setLanguage(lang);
+    });
   });
+
+  // Initialize
+  renderTransactionHistory();
   updateDashboard();
-  // also force transaction panel refresh doesn't conflict
+  updateWithdrawalUI();
 </script>
 </body>
 </html>
